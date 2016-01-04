@@ -6,8 +6,8 @@ brainchild of the [Machine Architecture
 2015](https://github.com/onlineta/ark15) course at [DIKU](http://www.diku.dk/),
 and has two intended purposes:
 
-  1. A simple MIPS/machine simulator intended for teaching computer
-     architecture and baseline systems programming.
+  1. A simple MIPS/machine simulator intended for teaching Computer
+     Architecture and baseline Systems Programming.
 
   2. A black-box simulator intended for teaching more advanced Computer Science
      concepts, such as, Compilers and Operating Systems.
