@@ -13,7 +13,7 @@ and has two intended purposes:
      concepts, such as, Compilers and Operating Systems.
 
 Ideally, when 2 follows 1, it is feasible for the good students to fully
-understand the blackbox they are dealing with.
+grasp (and utilize) the black-box beneath them.
 
 ``dims`` is also a Danish word for a small gizmo, a thing whose name is either
 forgotten or unknown, but is useful for a particular job.
