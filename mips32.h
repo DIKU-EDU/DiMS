@@ -1,12 +1,12 @@
-// Copyright (c) 2015 DIKU.
-// Copenhagen Liberal License - v0.5 - September 6, 2015.
+// Copyright (c) 2016 DIKU.
+// Copenhagen Liberal License - v0.6 - January 25, 2016.
 //
-// Authors:
-//  Annie Jane Pinder <anpi@di.ku.dk>
+// Authors (most recent contributors first):
 //  Oleksandr Shturmov <oleks@oleks.info>
+//  Annie Jane Pinder <anpi@di.ku.dk>
 
-#ifndef KUDiMS_MIPS32_H
-#define KUDiMS_MIPS32_H
+#ifndef DiMS_MIPS32_H
+#define DiMS_MIPS32_H
 
 
 #include <stdint.h>
@@ -82,4 +82,4 @@
 #define SIGN_EXTEND(value)  ((int32_t)(int16_t)value)
 #define ZERO_EXTEND(value)  ((uint32_t)value)
 
-#endif // KUDiMS_MIPS32_H
+#endif // DiMS_MIPS32_H

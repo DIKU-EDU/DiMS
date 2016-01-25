@@ -1,10 +1,9 @@
 // Simple ELF file parser.
 //
-// Copyright (c) 2015 DIKU.
-// Copenhagen Liberal License - v0.5 - September 6, 2015.
+// Copyright (c) 2016 DIKU.
+// Copenhagen Liberal License - v0.6 - January 25, 2016.
 //
-// Authors:
-//  Annie Jane Pinder <anpi@di.ku.dk>
+// Authors (most recent contributors first):
 //  Oleksandr Shturmov <oleks@oleks.info>
 
 // Written while reading the [ELFspec].
@@ -284,6 +283,8 @@ copy_segment(FILE *stream, struct p_header *phdr,
     error(0, 0, "couldn't read program segment");
     return ELF_ERROR_IO_ERROR;
   }
+
+  printf("Hello %x %x\n", offset, segmem[0x19]);
 
   return 0;
 }

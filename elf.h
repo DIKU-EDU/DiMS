@@ -1,14 +1,13 @@
 // Simple ELF file parser.
 //
-// Copyright (c) 2015 DIKU.
-// Copenhagen Liberal License - v0.5 - September 6, 2015.
+// Copyright (c) 2016 DIKU.
+// Copenhagen Liberal License - v0.6 - January 25, 2016.
 //
-// Authors:
-//  Annie Jane Pinder <anpi@di.ku.dk>
+// Authors (most recent contributors first):
 //  Oleksandr Shturmov <oleks@oleks.info>
 
-#ifndef KUDiMS_ELF_H
-#define KUDiMS_ELF_H
+#ifndef DiMS_ELF_H
+#define DiMS_ELF_H
 
 #include <stddef.h> // size_t
 #include <stdint.h> // uint32_t
@@ -22,4 +21,4 @@ int
 elf_dump(const char *path, uint32_t *entry,
   unsigned char *mem, size_t memsz);
 
-#endif // KUDiMS_ELF_H
+#endif // DiMS_ELF_H

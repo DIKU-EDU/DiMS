@@ -1,9 +1,9 @@
-# Copyright (c) 2015 DIKU.
-# Copenhagen Liberal License - v0.5 - September 6, 2015.
+# Copyright (c) 2016 DIKU.
+# Copenhagen Liberal License - v0.6 - January 25, 2016.
 #
 # Authors:
-#   Annie Jane Pinder <anpi@di.ku.dk>
 #   Oleksandr Shturmov <oleks@oleks.info>
+#   Annie Jane Pinder <anpi@di.ku.dk>
 
 .PHONY: all clean asm c
 
@@ -18,8 +18,14 @@ asm:
 c:
 	make --no-print-directory -C c
 
-sim: mips32.h elf.o sim.c
-	$(CC) $(CFLAGS) -o sim elf.o sim.c
+sim: mips32.h elf.o core.o sim.c
+	$(CC) $(CFLAGS) -g -o sim elf.o core.o sim.c
+
+core.o: core.h core.c
+	$(CC) $(CFLAGS) -g -c core.c
+
+mem.o: mem.h mem.c
+	$(CC) $(CFLAGS) -g -c mem.c
 
 elf.o: elf.h elf.c
 	$(CC) $(CFLAGS) -c elf.c
