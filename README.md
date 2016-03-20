@@ -15,8 +15,7 @@ and has two intended purposes:
 Ideally, when 2 follows 1, it is feasible for the good students to fully
 grasp (and utilize) the black-box beneath them.
 
-P.S. "dims" is also a Danish word for a small gizmo — a thing whose name is
-either forgotten or unknown, but is useful for a particular job.
+P.S. "dims" is also a Danish word for "gizmo".
 
 # Resources
 
