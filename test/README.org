@@ -23,8 +23,19 @@ To clean things up, type
 make clean
 #+END_SRC sh
 
-To disassemble a binary to see the bytecode produced, you can use the ~show_~
-prefix we've added:
+To merely cross-compile a single file, type the name of the target binary:
+
+#+BEGIN_SRC sh
+make ori.elf
+make universe.elf
+#+END_SRC
+
+Beware that a MIPS32 assembler may reorder instructions, and many MIPS32
+instructions really are pseudo-instructions translated into somehting else by
+the assembler.
+
+To disassemble a binary to see the bytecode actually produced, prefix it with
+~show_~:
 
 #+BEGIN_SRC sh
 make show_ori.elf
@@ -33,13 +44,8 @@ make show_universe.elf
 
 This will cross-compile ~universe.c~ before showing the disassembly.
 
-To merely cross-compile an assembly file or C file, type the name of the target
-binary:
-
-#+BEGIN_SRC sh
-make ori.elf
-make universe.elf
-#+END_SRC
+To disable reordering, add the assembler directive ~.set noreorder~ at the top
+of your assembly file.
 
 * Assembly Files
 
