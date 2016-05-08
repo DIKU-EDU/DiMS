@@ -56,8 +56,9 @@ _start:
 #+END_EXAMPLE
 
 The GNU linker looks for the label ~_start~ to mark the following instruction
-as the entry point of your binary. The ~_shutdown.S~ defines a shutdown
-sequence for the simulator, which might change as you develop the simulator.
+as the entry point of your binary. The file ~_shutdown.S~ defines a shutdown
+sequence for the simulator. This sequence might change as we develop the
+simulator.
 
 * C Files
 
