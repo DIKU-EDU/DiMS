@@ -1,0 +1,41 @@
+#+TITLE: DiMS Test Programs
+
+This directory contains baseline assembly (~.S~) files and C files for testing
+the simulator. To ease development, we provide an illustrative ~Makefile~.
+
+Both assembly files and C files are cross-compiled into MIPS32 ELF binaries,
+hence the ~.elf~ extension on all binaries produced.
+
+* Usage
+
+The ~Makefile~ can be used as a black-box, but diving in is strongly
+recommended.
+
+To cross-compile all assembly files into executables, type
+
+#+BEGIN_SRC sh
+make all
+#+END_SRC
+
+To clean things up, type
+
+#+BEGIN_SRC sh
+make clean
+#+END_SRC sh
+
+To disassemble a binary to see the bytecode produced, you can use the ~show_~
+prefix we've added:
+
+#+BEGIN_SRC sh
+make show_universe.elf
+#+END_SRC
+
+This will cross-compile ~universe.c~ before showing the disassembly.
+
+To merely cross-compile an assembly file or C file, type the name of the target
+binary:
+
+#+BEGIN_SRC sh
+make ori.elf
+make universe.elf
+#+END_SRC
