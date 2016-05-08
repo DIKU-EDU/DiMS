@@ -1,6 +1,6 @@
 .globl _start
 _start:
 
-  ori $v0, $0, 10
+  jal main
 
 .include "_shutdown.S"

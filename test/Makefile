@@ -6,16 +6,16 @@
 #  	Oleksandr Shturmov <oleks@oleks.info>
 
 C_FILES=$(patsubst %.c,%.elf,$(wildcard *.c))
-S_FILES=$(patsubst %.S,%.elf,$(filter-out _start.S,$(wildcard *.S)))
+S_FILES=$(patsubst %.S,%.elf,$(filter-out $(wildcard _*.S),$(wildcard *.S)))
 
 all: $(S_FILES) $(C_FILES)
 
-%.elf: %.S
+%.elf: %.S Makefile
 	mips-elf-as -mips32 -o $*.o --fatal-warnings $*.S
 	mips-elf-ld -o $*.elf $*.o
 
-%.elf: _start.S %.c
-	mips-elf-gcc -mips32 -nostdlib -o $*.elf _start.S $*.c
+%.elf: _jal-main.S %.c Makefile
+	mips-elf-gcc -mips32 -nostdlib -o $*.elf _jal-main.S $*.c
 
 show_%.elf: %.elf
 	mips-elf-objdump --source -M no-aliases $<

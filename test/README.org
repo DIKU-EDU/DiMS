@@ -11,7 +11,7 @@ hence the ~.elf~ extension on all binaries produced.
 The ~Makefile~ can be used as a black-box, but diving in is strongly
 recommended.
 
-To cross-compile all assembly files into executables, type
+To cross-compile all source files into executables, type
 
 #+BEGIN_SRC sh
 make all
@@ -27,6 +27,7 @@ To disassemble a binary to see the bytecode produced, you can use the ~show_~
 prefix we've added:
 
 #+BEGIN_SRC sh
+make show_ori.elf
 make show_universe.elf
 #+END_SRC
 
@@ -40,11 +41,35 @@ make ori.elf
 make universe.elf
 #+END_SRC
 
+* Assembly Files
+
+Every assembly file should have the following layout:
+
+#+BEGIN_EXAMPLE
+.globl _start
+_start:
+
+  # First instruction
+  # Remaining assembly code
+
+.include "_shutdown.S"
+#+END_EXAMPLE
+
+The GNU linker looks for the label ~_start~ to mark the following instruction
+as the entry point of your binary. The ~_shutdown.S~ defines a shutdown
+sequence for the simulator, which might change as you develop the simulator.
+
 * C Files
 
-C files are compiled without linking with the standard C library, and so
-~_start.S~ serves to do three things:
+There is nothing special about C files, except that:
 
-  1. Introduce a global ~_start~ label, which the linker will be looking for.
-  2. Jump-and-link to ~main~.
-  3. Halt the simulator on return from ~main~.
+  1. You don't have the C standard library at hand.
+  2. Libraries are not supported by the ~Makefile~ in general.
+
+In other words, a C file corresponds to a binary, and so must contain a `main`
+function.
+
+All C files are prepended by ~_jal-main.S~, which wraps a ~jal main~
+instruction as mentioned for assembly files above. This is sufficient to run C,
+provided that your simulator supports the instructions that your C file
+disassembles to.
