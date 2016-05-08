@@ -11,13 +11,13 @@ hence the ~.elf~ extension on all binaries produced.
 The ~Makefile~ can be used as a black-box, but diving in is strongly
 recommended.
 
-To cross-compile all source files into executables, type
+To cross-compile all source files into executables:
 
 #+BEGIN_SRC sh
 make all
 #+END_SRC
 
-To clean things up, type
+To clean things up:
 
 #+BEGIN_SRC sh
 make clean
