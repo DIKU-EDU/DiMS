@@ -73,7 +73,7 @@ There is nothing special about C files, except that:
   1. You don't have the C standard library at hand.
   2. Libraries are not supported by the ~Makefile~ in general.
 
-In other words, a C file corresponds to a binary, and so must contain a `main`
+In other words, a C file corresponds to a binary, and so must contain a ~main~
 function.
 
 All C files are prepended by ~_jal-main.S~, which wraps a ~jal main~
