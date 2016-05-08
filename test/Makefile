@@ -7,14 +7,15 @@
 
 C_FILES=$(patsubst %.c,%.elf,$(wildcard *.c))
 S_FILES=$(patsubst %.S,%.elf,$(filter-out $(wildcard _*.S),$(wildcard *.S)))
+DEPENDS=_shutdown.S Makefile
 
 all: $(S_FILES) $(C_FILES)
 
-%.elf: %.S Makefile
+%.elf: %.S $(DEPENDS)
 	mips-elf-as -mips32 -o $*.o --fatal-warnings $*.S
 	mips-elf-ld -o $*.elf $*.o
 
-%.elf: _jal-main.S %.c Makefile
+%.elf: _jal-main.S %.c $(DEPENDS)
 	mips-elf-gcc -mips32 -nostdlib -o $*.elf _jal-main.S $*.c
 
 show_%.elf: %.elf
