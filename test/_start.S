@@ -1,7 +1,7 @@
 .globl _start
 _start:
 
-  ori $v0, $0, 10
+  jal main
 
   # Simulator shutdown sequence
   syscall

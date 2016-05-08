@@ -39,3 +39,12 @@ binary:
 make ori.elf
 make universe.elf
 #+END_SRC
+
+* C Files
+
+C files are compiled without linking with the standard C library, and so
+~_start.S~ serves to do three things:
+
+  1. Introduce a global ~_start~ label, which the linker will be looking for.
+  2. Jump-and-link to ~main~.
+  3. Halt the simulator on return from ~main~.
