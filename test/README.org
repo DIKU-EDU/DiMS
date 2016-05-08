@@ -42,7 +42,7 @@ make show_ori.elf
 make show_universe.elf
 #+END_SRC
 
-This will cross-compile ~universe.c~ before showing the disassembly.
+This will also cross-compile the source file before showing disassembly.
 
 To disable reordering, add the assembler directive ~.set noreorder~ at the top
 of your assembly file.
